@@ -20,18 +20,7 @@ var App = /** @class */ (function () {
     };
     // Configure API endpoints.
     App.prototype.routes = function () {
-        /* This is just to get up and running, and to make sure what we've got is
-         * working so far. This function will change when we start to add more
-         * API endpoints */
-        var router = express.Router();
-        // placeholder route handler
-        router.get('/', function (req, res, next) {
-            res.json({
-                message: 'Hello World!'
-            });
-        });
-        this.express.use('/', router);
-        this.express.use('/api/v1/tsc', index_1.default);
+        this.express.use('/api/v1/', index_1.default);
     };
     return App;
 }());
