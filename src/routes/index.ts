@@ -1,15 +1,34 @@
 import {Router, Request, Response, NextFunction} from 'express';
 
-const router = Router();
+export class HeroRouter {
+  router: Router
 
-router.move('/somepath', (req: Request, res: Response) => {
-    res.set('Location', res.get('Destination'));
-});
+  /**
+   * Initialize the HeroRouter
+   */
+  constructor() {
+    this.router = Router();
+    this.init();
+  }
 
-router.route('/someroute')
-    .get((req: Request, res: Response, next: NextFunction) => {
-        req.accepts('application/json');
-        console.log('hello');
-    });
+  /**
+   * GET all Heroes.
+   */
+  public getAll(req: Request, res: Response, next: NextFunction) {
+    res.send('hello hero');
+  }
 
-export default router;
+  /**
+   * Take each handler, and attach to one of the Express.Router's
+   * endpoints.
+   */
+  init() {
+    this.router.get('/', this.getAll);
+  }
+
+}
+
+// Create the HeroRouter, and export its configured Express.Router
+const heroRoutes = new HeroRouter();
+heroRoutes.init();
+export default heroRoutes.router;

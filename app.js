@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var logger = require("morgan");
 var bodyParser = require("body-parser");
+var index_1 = require("./routes/index");
 // Creates and configures an ExpressJS web server.
 var App = /** @class */ (function () {
     //Run configuration methods on the Express instance.
@@ -30,6 +31,7 @@ var App = /** @class */ (function () {
             });
         });
         this.express.use('/', router);
+        this.express.use('/api/v1/tsc', index_1.default);
     };
     return App;
 }());
