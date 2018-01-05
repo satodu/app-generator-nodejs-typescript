@@ -10,3 +10,5 @@ Solve -> If you need a express but wants to use in typescript, here is the solut
  - git clone https://github.com/satodu/app-generator-nodejs-typescript.git;
  - npm install;
  - npm start 
+
+ All the editable files are inside 'src'
